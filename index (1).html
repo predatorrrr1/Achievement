@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For Dr. Krishaaa 💕</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Great+Vibes&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html,body{min-height:100%;background:radial-gradient(ellipse at center,#3d0020 0%,#180010 100%);}
+    .page-wrap{min-height:100vh;background:radial-gradient(ellipse at center,#3d0020 0%,#180010 100%);display:flex;align-items:flex-start;justify-content:center;padding:12px;font-family:'Lora',Georgia,serif;}
+    .cert-card{position:relative;width:100%;max-width:860px;overflow:hidden;background:radial-gradient(ellipse at 20% 8%,rgba(232,56,90,.14) 0%,transparent 50%),radial-gradient(ellipse at 80% 12%,rgba(255,107,157,.11) 0%,transparent 45%),radial-gradient(ellipse at 50% 65%,rgba(255,192,203,.08) 0%,transparent 55%),linear-gradient(155deg,#FFF2F6 0%,#FFE2EE 35%,#FFF6F2 65%,#FFE9F2 100%);border:3px solid rgba(201,150,58,.75);outline:5px solid rgba(232,56,90,.18);outline-offset:4px;animation:glowPulse 3.5s ease-in-out infinite,fadeRise 1s ease-out both;}
+    .inner-border-gold{position:absolute;inset:10px;pointer-events:none;z-index:0;border:1px solid rgba(201,150,58,.45);animation:borderDance 3s ease-in-out infinite;}
+    .inner-border-rose{position:absolute;inset:15px;pointer-events:none;z-index:0;border:1.5px dashed rgba(232,56,90,.28);}
+    .bokeh{position:absolute;border-radius:50%;pointer-events:none;z-index:0;}
+    .floater{position:fixed;pointer-events:none;z-index:0;top:-80px;animation:floatDown linear infinite;}
+    .content-wrap{position:relative;z-index:2;padding:28px 18px 78px;display:flex;flex-direction:column;align-items:center;gap:18px;}
+    .divider{height:1px;width:65%;background:linear-gradient(90deg,transparent,#C9963A 25%,#F0D080 50%,#C9963A 75%,transparent);}
+    .achieve-box{width:100%;background:linear-gradient(135deg,#fff 0%,#FFF8FA 100%);border-radius:18px;box-shadow:0 0 0 1px rgba(201,150,58,.4),0 0 0 3px rgba(232,56,90,.1),0 10px 36px rgba(232,56,90,.1);padding:clamp(14px,4vw,26px);}
+    .trait-card{display:flex;align-items:flex-start;gap:12px;padding:11px 16px;background:linear-gradient(135deg,rgba(255,255,255,.72),rgba(255,228,238,.45));border:1px solid rgba(232,56,90,.18);border-radius:14px;transition:transform .2s,box-shadow .2s;}
+    .trait-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(232,56,90,.14);}
+    .sig-block{display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center;background:linear-gradient(155deg,rgba(255,255,255,.6),rgba(255,228,238,.38));border:1px solid rgba(201,150,58,.3);border-radius:14px;padding:12px 8px 10px;}
+    .corner-orn{position:absolute;pointer-events:none;z-index:6;color:#C9963A;font-size:20px;filter:drop-shadow(0 0 5px rgba(201,150,58,.55));}
+    .title-shimmer{background:linear-gradient(90deg,#9A6820 0%,#E8B84B 28%,#C9963A 50%,#E8B84B 72%,#9A6820 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 3.5s linear infinite;}
+    .name-glow{color:#E8385A;filter:drop-shadow(0 0 18px rgba(232,56,90,.45)) drop-shadow(0 2px 4px rgba(107,15,26,.3));}
+    .heart-beat{display:inline-block;animation:heartPulse .85s ease-in-out infinite;color:#E8385A;}
+    .hug-area{width:100%;aspect-ratio:240/140;background:linear-gradient(135deg,rgba(255,255,255,.9),rgba(255,228,238,.65));border-radius:14px;border:2px solid rgba(232,56,90,.28);box-shadow:0 4px 20px rgba(232,56,90,.13);cursor:pointer;overflow:visible;display:flex;align-items:center;justify-content:center;transition:transform .2s,box-shadow .2s;}
+    .hug-area:hover{transform:scale(1.04);box-shadow:0 8px 28px rgba(232,56,90,.24);}
+    .hug-area:active{transform:scale(0.97);}
+    .hug-btn{font-family:'Lora',serif;font-weight:700;cursor:pointer;border-radius:50px;font-size:clamp(9px,2.5vw,12px);letter-spacing:.08em;text-transform:uppercase;transition:all .3s;padding:7px 18px;}
+    .hug-btn:hover{transform:translateY(-2px);}
+    .hug-btn:active{transform:scale(0.95);}
+    .row-ems{display:flex;align-items:center;justify-content:center;gap:8px;}
+    .em-glow{filter:drop-shadow(0 0 4px rgba(232,56,90,.42));}
+    @keyframes floatDown{0%{transform:translateY(0) rotate(0deg) translateX(0);opacity:0}5%{opacity:.9}90%{opacity:.6}100%{transform:translateY(110vh) rotate(380deg) translateX(var(--sway));opacity:0}}
+    @keyframes glowPulse{0%,100%{box-shadow:0 0 22px rgba(232,56,90,.28),0 0 60px rgba(232,56,90,.08)}50%{box-shadow:0 0 38px rgba(232,56,90,.48),0 0 90px rgba(232,56,90,.18)}}
+    @keyframes heartPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.18);filter:drop-shadow(0 0 5px rgba(232,56,90,.7))}}
+    @keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+    @keyframes fadeRise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes borderDance{0%,100%{opacity:.55}50%{opacity:1}}
+    @keyframes particleBurst{0%{opacity:0;transform:translate(0,0) scale(0) rotate(0deg)}15%{opacity:1;transform:translate(0,0) scale(1.4) rotate(45deg)}100%{opacity:0;transform:translate(var(--driftX),var(--driftY)) scale(0.1) rotate(270deg)}}
+  </style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useEffect, useRef, useMemo } = React;
+
+const TeddySVG = ({ style }) => (
+  <svg viewBox="0 0 120 120" style={style} xmlns="http://www.w3.org/2000/svg">
+    <circle cx="35" cy="95" r="16" fill="#E8A87C" stroke="#7B4A2D" strokeWidth="2"/>
+    <circle cx="35" cy="97" r="7" fill="#F5C6C6"/>
+    <circle cx="26" cy="88" r="3" fill="#F5C6C6"/>
+    <circle cx="35" cy="85" r="3" fill="#F5C6C6"/>
+    <circle cx="44" cy="88" r="3" fill="#F5C6C6"/>
+    <circle cx="85" cy="95" r="16" fill="#E8A87C" stroke="#7B4A2D" strokeWidth="2"/>
+    <circle cx="85" cy="97" r="7" fill="#F5C6C6"/>
+    <circle cx="76" cy="88" r="3" fill="#F5C6C6"/>
+    <circle cx="85" cy="85" r="3" fill="#F5C6C6"/>
+    <circle cx="94" cy="88" r="3" fill="#F5C6C6"/>
+    <ellipse cx="60" cy="75" rx="28" ry="30" fill="#E8A87C" stroke="#7B4A2D" strokeWidth="2"/>
+    <circle cx="32" cy="24" r="14" fill="#E8A87C" stroke="#7B4A2D" strokeWidth="2"/>
+    <circle cx="32" cy="24" r="6" fill="#FDDBC8"/>
+    <circle cx="88" cy="24" r="14" fill="#E8A87C" stroke="#7B4A2D" strokeWidth="2"/>
+    <circle cx="88" cy="24" r="6" fill="#FDDBC8"/>
+    <ellipse cx="60" cy="45" rx="36" ry="30" fill="#E8A87C" stroke="#7B4A2D" strokeWidth="2"/>
+    <ellipse cx="32" cy="52" rx="7" ry="4" fill="#FF8DA1" opacity="0.9"/>
+    <ellipse cx="88" cy="52" rx="7" ry="4" fill="#FF8DA1" opacity="0.9"/>
+    <ellipse cx="60" cy="55" rx="14" ry="10" fill="#FDDBC8"/>
+    <ellipse cx="60" cy="49" rx="5" ry="3.5" fill="#1A1A1A"/>
+    <path d="M 60 52.5 V 56" fill="none" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="round"/>
+    <path d="M 53 55 Q 60 62 67 55" fill="none" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="round"/>
+    <circle cx="44" cy="42" r="5.5" fill="#1A1A1A"/>
+    <circle cx="45.5" cy="40" r="2" fill="#FFFFFF"/>
+    <circle cx="42.5" cy="43.5" r="0.8" fill="#FFFFFF"/>
+    <circle cx="76" cy="42" r="5.5" fill="#1A1A1A"/>
+    <circle cx="77.5" cy="40" r="2" fill="#FFFFFF"/>
+    <circle cx="74.5" cy="43.5" r="0.8" fill="#FFFFFF"/>
+    <path d="M 40 33 Q 44 31 48 33" fill="none" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="round"/>
+    <path d="M 72 33 Q 76 31 80 33" fill="none" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="round"/>
+    <path d="M 60 70 C 60 70 48 53 35 53 C 18 53 18 78 18 78 C 18 95 60 112 60 112 C 60 112 102 95 102 78 C 102 78 102 53 85 53 C 72 53 60 70 60 70 Z" fill="#E8385A" stroke="#8B0000" strokeWidth="2" strokeLinejoin="round"/>
+    <path d="M 30 65 Q 40 58 48 65" fill="none" stroke="#FFAABB" strokeWidth="3.5" strokeLinecap="round"/>
+    <ellipse cx="28" cy="72" rx="9" ry="16" fill="#E8A87C" stroke="#7B4A2D" strokeWidth="2" transform="rotate(-35 28 72)"/>
+    <ellipse cx="92" cy="72" rx="9" ry="16" fill="#E8A87C" stroke="#7B4A2D" strokeWidth="2" transform="rotate(35 92 72)"/>
+  </svg>
+);
+
+function App() {
+  const [isHugging, setIsHugging] = useState(false);
+  const [particles, setParticles] = useState([]);
+  const particleIdRef = useRef(0);
+
+  const floaters = useMemo(() => Array.from({length:26}).map((_,i) => ({
+    id: i,
+    left: Math.random()*100,
+    delay: Math.random()*12,
+    dur: 9+Math.random()*10,
+    size: 10+Math.random()*18,
+    type: Math.random()>0.45?'petal':'heart',
+    color: ['#FF6B9D','#FF8FAB','#FFB3C1','#E8385A','#FF4D6D','#FF85A1','#FFC2D1'][Math.floor(Math.random()*7)],
+    sway: (Math.random()-0.5)*70,
+  })),[]);
+
+  const createParticles = (count) => {
+    const cols=['#FF4D6D','#FFB3C1','#FFD700','#FFF','#FF85A1'];
+    const newP=Array.from({length:count}).map(()=>({
+      id:++particleIdRef.current,
+      x:60+Math.random()*120, y:20+Math.random()*80,
+      type:Math.random()>0.4?'sparkle':'heart',
+      size:0.4+Math.random()*1.6,
+      color:cols[Math.floor(Math.random()*cols.length)],
+      duration:1.2+Math.random()*1.2,
+      driftX:(Math.random()-0.5)*160,
+      driftY:-90-Math.random()*80,
+    }));
+    setParticles(prev=>[...prev.slice(-80),...newP]);
+  };
+
+  useEffect(()=>{
+    let interval;
+    if(isHugging){createParticles(22);interval=setInterval(()=>createParticles(6),180);}
+    else setParticles([]);
+    return ()=>clearInterval(interval);
+  },[isHugging]);
+
+  useEffect(()=>{
+    const t=setInterval(()=>setParticles(p=>p.filter(x=>(Date.now()-x.id)<3000)),1000);
+    return ()=>clearInterval(t);
+  },[]);
+
+  return (
+    <div className="page-wrap">
+      {/* Floating petals */}
+      <div style={{position:'fixed',inset:0,pointerEvents:'none',overflow:'hidden',zIndex:0}}>
+        {floaters.map(f=>(
+          <div key={f.id} className="floater" style={{left:`${f.left}%`,animationDuration:`${f.dur}s`,animationDelay:`${f.delay}s`,'--sway':`${f.sway}px`}}>
+            {f.type==='heart'
+              ?<span style={{fontSize:f.size,color:f.color,lineHeight:1}}>♥</span>
+              :<svg viewBox="0 0 40 60" style={{width:f.size,height:f.size*1.4}}><ellipse cx="20" cy="35" rx="14" ry="22" fill={f.color} opacity="0.8" transform="rotate(-15 20 35)"/></svg>
+            }
+          </div>
+        ))}
+      </div>
+
+      <div className="cert-card">
+        <div className="inner-border-gold"/>
+        <div className="inner-border-rose"/>
+        <div className="bokeh" style={{top:-90,left:-90,width:300,height:300,background:'radial-gradient(circle,rgba(232,56,90,.09),transparent 70%)'}}/>
+        <div className="bokeh" style={{top:'28%',right:-110,width:340,height:340,background:'radial-gradient(circle,rgba(255,107,157,.07),transparent 70%)'}}/>
+        <div className="bokeh" style={{bottom:-70,left:'38%',width:280,height:280,background:'radial-gradient(circle,rgba(232,56,90,.08),transparent 70%)'}}/>
+
+        <span className="corner-orn" style={{top:16,left:16}}>❧</span>
+        <span className="corner-orn" style={{top:16,right:16}}>❧</span>
+        <span className="corner-orn" style={{bottom:16,left:16,fontSize:14}}>❧</span>
+        <span className="corner-orn" style={{bottom:16,right:16,fontSize:14}}>❧</span>
+
+        <TeddySVG style={{position:'absolute',bottom:7,left:7,width:62,height:62,zIndex:5,filter:'drop-shadow(0 2px 6px rgba(232,56,90,.3))'}}/>
+        <TeddySVG style={{position:'absolute',bottom:7,right:7,width:62,height:62,zIndex:5,transform:'scaleX(-1)',filter:'drop-shadow(0 2px 6px rgba(232,56,90,.3))'}}/>
+
+        <div className="content-wrap">
+          {/* Top roses */}
+          <div className="row-ems" style={{marginTop:4}}>
+            {['🌹','💕','🌹','💕','🌹'].map((e,i)=>(
+              <span key={i} className="em-glow" style={{fontSize:i===2?24:16,opacity:i===2?1:0.8}}>{e}</span>
+            ))}
+          </div>
+
+          {/* Header */}
+          <div style={{textAlign:'center',animation:'fadeRise 0.8s 0.1s both'}}>
+            <div style={{fontFamily:"'Great Vibes',cursive",fontSize:'clamp(15px,4.5vw,24px)',color:'#C9963A',marginBottom:6}}>
+              with all the love in the universe
+            </div>
+            <h1 style={{fontFamily:"'Playfair Display',serif",fontWeight:900,fontSize:'clamp(15px,4vw,38px)',lineHeight:1.2,margin:0,letterSpacing:'0.06em',textTransform:'uppercase'}}>
+              <span className="title-shimmer">Certificate of Royal Cuteness</span><br/>
+              <span className="title-shimmer">&amp; Hustle</span>
+            </h1>
+            <div style={{fontFamily:"'Great Vibes',cursive",fontSize:'clamp(12px,3.2vw,19px)',color:'#E8385A',marginTop:6,opacity:.9}}>
+              A Magnificent Award for the World's Most Adorable Queen
+            </div>
+          </div>
+
+          <div className="divider"/>
+
+          <p style={{color:'#7A3040',fontStyle:'italic',fontSize:'clamp(11px,2.8vw,15px)',animation:'fadeRise 0.8s 0.2s both'}}>
+            This super special reward is lovingly presented to
+          </p>
+
+          {/* Name */}
+          <div style={{textAlign:'center',animation:'fadeRise 0.8s 0.3s both'}}>
+            <div className="name-glow" style={{fontFamily:"'Great Vibes',cursive",fontSize:'clamp(40px,13vw,88px)',lineHeight:1,marginBottom:4}}>
+              Dr. Krishaaa
+            </div>
+            <div style={{display:'flex',alignItems:'center',justifyContent:'center',gap:8}}>
+              <span className="heart-beat" style={{fontSize:15}}>♥</span>
+              <span style={{fontStyle:'italic',color:'#C9963A',fontSize:'clamp(10px,2.6vw,14px)'}}>
+                The Smartest, Cutest, and Most Goal-Oriented Soul
+              </span>
+              <span className="heart-beat" style={{fontSize:15,animationDelay:'0.42s'}}>♥</span>
+            </div>
+          </div>
+
+          <div className="divider" style={{width:'52%'}}/>
+
+          {/* Achievement */}
+          <div className="achieve-box" style={{animation:'fadeRise 0.8s 0.4s both'}}>
+            <div style={{display:'flex',alignItems:'center',justifyContent:'center',gap:10,flexWrap:'wrap',marginBottom:10}}>
+              <span className="em-glow" style={{fontSize:20}}>🌹</span>
+              <h3 style={{fontFamily:"'Playfair Display',serif",fontWeight:700,fontSize:'clamp(11px,2.8vw,17px)',color:'#6B0F1A',margin:0,textAlign:'center',letterSpacing:'0.06em',textTransform:'uppercase'}}>
+                For the Extraordinary Completion of the OBS Marathon
+              </h3>
+              <span className="em-glow" style={{fontSize:20}}>🌹</span>
+            </div>
+            <p style={{color:'#4A1020',fontSize:'clamp(11px,2.7vw,14px)',lineHeight:1.75,margin:0,textAlign:'center'}}>
+              Successfully mastered <strong style={{color:'#E8385A',fontFamily:"'Playfair Display',serif"}}>9 out of 9 videos</strong> against a strict deadline,<br/>
+              while remaining the most adorable <em style={{color:'#C9963A'}}>"cute little creature"</em> in existence.
+            </p>
+          </div>
+
+          {/* Traits */}
+          <div style={{width:'100%',display:'flex',flexDirection:'column',gap:9,animation:'fadeRise 0.8s 0.5s both'}}>
+            {[
+              {icon:'💖',title:'Visual Magic',text:'Holder of the most magical, deep black, and dense eyes in the medical fraternity.'},
+              {icon:'🌸',title:'Social Impact',text:'Leading advocate for Women Empowerment and Resident Expert in Pinterest Quote Analysis.'},
+              {icon:'✨',title:'Minimalist Diner',text:'World record holder for eating the least while giving the most care to others.'},
+            ].map(({icon,title,text})=>(
+              <div key={title} className="trait-card">
+                <span className="em-glow" style={{fontSize:20,flexShrink:0}}>{icon}</span>
+                <p style={{margin:0,fontSize:'clamp(11px,2.6vw,13.5px)',color:'#4A1020',lineHeight:1.65}}>
+                  <strong style={{fontFamily:"'Playfair Display',serif",color:'#E8385A'}}>{title}: </strong>{text}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="divider" style={{width:'68%'}}/>
+
+          {/* Signatures + Puzzle */}
+          <div style={{width:'100%',display:'grid',gridTemplateColumns:'1fr auto 1fr',gap:'clamp(6px,2.5vw,14px)',alignItems:'end',marginBottom:8,animation:'fadeRise 0.8s 0.6s both'}}>
+
+            <div className="sig-block">
+              <span className="em-glow" style={{fontSize:'clamp(24px,7vw,36px)'}}>👑</span>
+              <div className="divider" style={{width:'85%'}}/>
+              <strong style={{fontFamily:"'Playfair Display',serif",color:'#6B0F1A',fontSize:'clamp(9px,2.3vw,12px)',textTransform:'uppercase',letterSpacing:'0.1em'}}>The Crown</strong>
+              <span style={{color:'#7A3040',fontSize:'clamp(8px,1.9vw,11px)',fontStyle:'italic'}}>(Her Long Distance Admirer)</span>
+            </div>
+
+            <div style={{display:'flex',flexDirection:'column',alignItems:'center',gap:8,width:'clamp(130px,34vw,205px)'}}>
+              <div style={{fontFamily:"'Great Vibes',cursive",color:'#E8385A',fontSize:'clamp(13px,3.4vw,17px)',textAlign:'center',lineHeight:1.2}}>
+                Made for each other
+              </div>
+              <div className="hug-area" onClick={()=>setIsHugging(!isHugging)}>
+                <svg viewBox="0 0 240 140" style={{width:'100%',height:'100%',overflow:'visible',padding:4}}>
+                  <defs>
+                    <filter id="ps2"><feDropShadow dx="0" dy="2" stdDeviation="2.5" floodOpacity="0.22"/></filter>
+                    <linearGradient id="pg1" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#FF6B9D"/><stop offset="100%" stopColor="#8B0000"/>
+                    </linearGradient>
+                    <linearGradient id="pg2" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#FF8FAB"/><stop offset="100%" stopColor="#6B0F1A"/>
+                    </linearGradient>
+                  </defs>
+                  <g transform={isHugging?"translate(0,0)":"translate(-22,0)"} style={{transition:'transform 0.85s cubic-bezier(0.34,1.56,0.64,1)'}}>
+                    <path d="M 30 28 h 80 v 26 c 20 0, 20 30, 0 30 v 26 h -80 z" fill="url(#pg1)" stroke="#4a0414" strokeWidth="2" filter="url(#ps2)"/>
+                    <circle cx="60" cy="55" r="3" fill="#FFD6E0"/>
+                    <circle cx="84" cy="55" r="3" fill="#FFD6E0"/>
+                    <path d="M 55 72 Q 65 81 76 72" fill="none" stroke="#FFD6E0" strokeWidth="2.5" strokeLinecap="round"/>
+                    <text x="57" y="44" textAnchor="middle" fill="#FFD6E0" fontSize="9" fontFamily="serif" opacity="0.8">♥</text>
+                    <g style={{opacity:isHugging?0:1,transition:'opacity 0.4s'}}>
+                      <path d="M 70 92 Q 100 100 116 87" fill="none" stroke="#4a0414" strokeWidth="5" strokeLinecap="round"/>
+                      <path d="M 70 92 Q 100 100 116 87" fill="none" stroke="#a4133c" strokeWidth="2.5" strokeLinecap="round"/>
+                    </g>
+                  </g>
+                  <g transform={isHugging?"translate(0,0)":"translate(22,0)"} style={{transition:'transform 0.85s cubic-bezier(0.34,1.56,0.64,1)'}}>
+                    <path d="M 110 28 h 80 v 80 h -80 v -26 c 20 0, 20 -30, 0 -30 v -26 z" fill="url(#pg2)" stroke="#4a0414" strokeWidth="2" filter="url(#ps2)"/>
+                    <path d="M 138 55 Q 141 50 144 55" fill="none" stroke="#FFD6E0" strokeWidth="2.5" strokeLinecap="round"/>
+                    <path d="M 163 55 Q 166 50 169 55" fill="none" stroke="#FFD6E0" strokeWidth="2.5" strokeLinecap="round"/>
+                    <path d="M 144 74 Q 153 82 162 74" fill="none" stroke="#FFD6E0" strokeWidth="2.5" strokeLinecap="round"/>
+                    <text x="153" y="44" textAnchor="middle" fill="#FFD6E0" fontSize="9" fontFamily="serif" opacity="0.8">♥</text>
+                    <g style={{opacity:isHugging?0:1,transition:'opacity 0.4s'}}>
+                      <path d="M 155 92 Q 125 100 110 87" fill="none" stroke="#4a0414" strokeWidth="5" strokeLinecap="round"/>
+                      <path d="M 155 92 Q 125 100 110 87" fill="none" stroke="#a4133c" strokeWidth="2.5" strokeLinecap="round"/>
+                    </g>
+                  </g>
+                  {isHugging&&(
+                    <text x="120" y="110" textAnchor="middle" fill="#E8385A" fontSize="12" fontFamily="'Great Vibes',cursive" style={{filter:'drop-shadow(0 0 4px rgba(232,56,90,.6))'}}>
+                      forever yours ♥
+                    </text>
+                  )}
+                  <g>
+                    {particles.map(p=>(
+                      <g key={p.id} style={{transformOrigin:'center',animation:`particleBurst ${p.duration}s ease-out forwards`,'--driftX':`${p.driftX}px`,'--driftY':`${p.driftY}px`}}>
+                        {p.type==='heart'
+                          ?<path d="M0,4 A4,4 0 0,1 8,4 A4,4 0 0,1 16,4 Q16,10 8,17 Q0,10 0,4Z" fill={p.color} transform={`translate(${p.x},${p.y}) scale(${p.size*0.45})`}/>
+                          :<path d="M8,0 L10,6 L16,8 L10,10 L8,16 L6,10 L0,8 L6,6Z" fill={p.color} transform={`translate(${p.x},${p.y}) scale(${p.size*0.35})`}/>
+                        }
+                      </g>
+                    ))}
+                  </g>
+                </svg>
+              </div>
+              <button className="hug-btn" onClick={()=>setIsHugging(!isHugging)}
+                style={{border:isHugging?'2px solid #FF6B9D':'none',background:isHugging?'linear-gradient(135deg,#FFF2F6,#FFE4EE)':'linear-gradient(135deg,#E8385A,#8B0000)',color:isHugging?'#8B0000':'#fff',boxShadow:isHugging?'0 2px 10px rgba(232,56,90,.18)':'0 4px 16px rgba(232,56,90,.45)'}}>
+                {isHugging?'✨ Forever & Always ✨':'💕 Click to Hug 💕'}
+              </button>
+            </div>
+
+            <div className="sig-block">
+              <span className="em-glow" style={{fontSize:'clamp(24px,7vw,36px)'}}>👸🏻</span>
+              <div className="divider" style={{width:'85%'}}/>
+              <strong style={{fontFamily:"'Playfair Display',serif",color:'#6B0F1A',fontSize:'clamp(9px,2.3vw,12px)',textTransform:'uppercase',letterSpacing:'0.1em'}}>The Queen</strong>
+              <span style={{color:'#7A3040',fontSize:'clamp(8px,1.9vw,11px)',fontStyle:'italic'}}>(Self-Obsessed &amp; Loved by All)</span>
+            </div>
+          </div>
+
+          {/* Footer quote */}
+          <div style={{textAlign:'center',background:'linear-gradient(135deg,rgba(255,255,255,.65),rgba(255,228,238,.45))',border:'1px solid rgba(201,150,58,.32)',borderRadius:50,padding:'7px 20px',maxWidth:'88%'}}>
+            <p style={{margin:0,color:'#8B0000',fontStyle:'italic',fontSize:'clamp(9px,2.3vw,12px)'}}>
+              "Borrowing the heart for a second to sign it here, Love of eternity."
+            </p>
+          </div>
+
+          <div className="row-ems" style={{marginBottom:4,marginTop:-4}}>
+            {['🌹','💕','♥','💕','🌹'].map((e,i)=>(
+              <span key={i} className="em-glow" style={{fontSize:i===2?19:14,color:i===2?'#E8385A':undefined,opacity:i===2?1:0.78,display:'inline-block',animation:i===2?'heartPulse 0.85s ease-in-out infinite':'none'}}>
+                {e}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>
